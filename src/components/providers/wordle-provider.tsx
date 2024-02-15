@@ -2,7 +2,7 @@ import { ReactNode, useState } from "react";
 
 import { WordleContext } from "@/components/contexts/wordle-context";
 
-export const TARGET_WORD = "table";
+export const TARGET_WORD = "TABLE";
 
 interface WordleProviderProps {
   children: ReactNode;
@@ -23,9 +23,19 @@ export const WordleProvider = ({
     }
   };
 
+  const handleSetCurrentGuess = (value: string) => {
+    setCurrentGuess(value.toUpperCase());
+  };
+
   return (
     <WordleContext.Provider
-      value={{ currentGuess, guesses, targetWord: TARGET_WORD, addGuess }}
+      value={{
+        currentGuess,
+        guesses,
+        targetWord: TARGET_WORD,
+        addGuess,
+        setCurrentGuess: handleSetCurrentGuess,
+      }}
     >
       {children}
     </WordleContext.Provider>
