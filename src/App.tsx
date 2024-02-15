@@ -1,8 +1,8 @@
 import {
   TARGET_WORD,
   WordleProvider,
-} from "./components/providers/wordle-provider";
-import { Wordle } from "./components/wordle";
+} from "@/components/providers/wordle-provider";
+import { Wordle } from "@/components/wordle";
 
 function App() {
   return (

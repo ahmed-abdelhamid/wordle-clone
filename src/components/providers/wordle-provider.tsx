@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 
-import { WordleContext } from "../contexts/wordle-context";
+import { WordleContext } from "@/components/contexts/wordle-context";
 
 export const TARGET_WORD = "table";
 

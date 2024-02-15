@@ -1,8 +1,8 @@
 import { useContext, useReducer } from "react";
 
-import { Row } from "./row";
-import { State, letterReducer } from "../reducers/letters-reducer";
-import { WordleContext } from "./contexts/wordle-context";
+import { Row } from "@/components/row";
+import { State, letterReducer } from "@/reducers/letters-reducer";
+import { WordleContext } from "@/components/contexts/wordle-context";
 
 const initialState: State = { letters: ["", "", "", "", ""], guessNo: 0 };
 
