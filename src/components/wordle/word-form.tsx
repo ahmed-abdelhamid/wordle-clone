@@ -6,17 +6,14 @@ import { WordleContext } from "@/components/contexts/wordle-context";
 export const WordForm = () => {
   const context = useContext(WordleContext);
 
-  if (!context) return null;
-
-  const { currentGuess, setCurrentGuess, addGuess } = context;
   const handleGuessChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCurrentGuess(e.target.value);
+    context?.setCurrentGuess(e.target.value);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(currentGuess);
-    addGuess(currentGuess);
+    console.log(context?.currentGuess);
+    context?.addGuess(context?.currentGuess);
   };
 
   return (
@@ -26,7 +23,8 @@ export const WordForm = () => {
         pattern="[A-Za-z]{5}"
         title="Your guess should be only letters and 5 letters long"
         placeholder="Guess Word"
-        value={currentGuess}
+        value={context?.currentGuess}
+        disabled={context?.guesses.length === context?.maxGuesses}
         onChange={handleGuessChange}
       />
     </form>

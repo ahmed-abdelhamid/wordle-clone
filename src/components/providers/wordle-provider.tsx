@@ -3,6 +3,7 @@ import { ReactNode, useState } from "react";
 import { WordleContext } from "@/components/contexts/wordle-context";
 
 export const TARGET_WORD = "TABLE";
+export const MAX_GUESSES = 6;
 
 interface WordleProviderProps {
   children: ReactNode;
@@ -35,6 +36,7 @@ export const WordleProvider = ({
         targetWord: TARGET_WORD,
         addGuess,
         setCurrentGuess: handleSetCurrentGuess,
+        maxGuesses: MAX_GUESSES,
       }}
     >
       {children}

@@ -6,6 +6,7 @@ interface IWordleContext {
   guesses: string[];
   targetWord: string;
   addGuess: (guess: string) => void;
+  maxGuesses: number;
 }
 
 export const WordleContext = createContext<IWordleContext | undefined>(
