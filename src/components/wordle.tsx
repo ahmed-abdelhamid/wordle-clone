@@ -1,13 +1,16 @@
-import { useReducer } from "react";
+import { useContext, useReducer } from "react";
 
 import { Row } from "./row";
 import { State, letterReducer } from "../reducers/letters-reducer";
+import { WordleContext } from "./contexts/wordle-context";
 
 const initialState: State = { letters: ["", "", "", "", ""], guessNo: 0 };
 
 const WORD = "table";
 
 export const Wordle = () => {
+  const context = useContext(WordleContext);
+  console.log(context);
   const [state, dispatch] = useReducer(letterReducer, initialState);
   const isGuessed = state.letters.join("") === WORD;
 
