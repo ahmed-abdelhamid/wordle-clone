@@ -1,6 +1,9 @@
 import { ReactNode, useState } from "react";
 
-import { WordleContext } from "@/components/contexts/wordle-context";
+import {
+  GameStatus,
+  WordleContext,
+} from "@/components/contexts/wordle-context";
 
 export const TARGET_WORD = "TABLE";
 export const MAX_GUESSES = 6;
@@ -16,11 +19,19 @@ export const WordleProvider = ({
 }: WordleProviderProps) => {
   const [guesses, setGuesses] = useState<string[]>([]);
   const [currentGuess, setCurrentGuess] = useState<string>("");
+  const [status, setStatus] = useState<GameStatus>("playing");
 
   const addGuess = (guess: string) => {
     if (guess.length === targetWord.length) {
       setGuesses((prev) => [...prev, guess]);
       setCurrentGuess("");
+      if (guess === targetWord) {
+        setStatus("won");
+      }
+
+      if (guesses.length + 1 === MAX_GUESSES) {
+        setStatus("lost");
+      }
     }
   };
 
@@ -37,6 +48,7 @@ export const WordleProvider = ({
         addGuess,
         setCurrentGuess: handleSetCurrentGuess,
         maxGuesses: MAX_GUESSES,
+        status,
       }}
     >
       {children}

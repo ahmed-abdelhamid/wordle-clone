@@ -13,7 +13,6 @@ export const WordForm = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(context?.currentGuess);
     context?.addGuess(context?.currentGuess);
   };
 
@@ -28,7 +27,7 @@ export const WordForm = () => {
         title="Your guess should be only letters and 5 letters long"
         placeholder="Guess Word"
         value={context?.currentGuess}
-        disabled={context?.guesses.length === context?.maxGuesses}
+        disabled={context?.status !== "playing"}
         onChange={handleGuessChange}
         className="text-center text-lg"
       />

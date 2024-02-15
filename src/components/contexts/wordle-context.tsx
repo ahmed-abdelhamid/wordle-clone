@@ -1,5 +1,7 @@
 import { createContext } from "react";
 
+export type GameStatus = "won" | "lost" | "playing";
+
 interface IWordleContext {
   currentGuess: string;
   setCurrentGuess: (value: string) => void;
@@ -7,6 +9,7 @@ interface IWordleContext {
   targetWord: string;
   addGuess: (guess: string) => void;
   maxGuesses: number;
+  status: GameStatus;
 }
 
 export const WordleContext = createContext<IWordleContext | undefined>(
