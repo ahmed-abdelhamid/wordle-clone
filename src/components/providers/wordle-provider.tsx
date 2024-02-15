@@ -35,6 +35,12 @@ export const WordleProvider = ({
     }
   };
 
+  const reset = () => {
+    setGuesses([]);
+    setCurrentGuess("");
+    setStatus("playing");
+  };
+
   const handleSetCurrentGuess = (value: string) => {
     setCurrentGuess(value.toUpperCase());
   };
@@ -49,6 +55,7 @@ export const WordleProvider = ({
         setCurrentGuess: handleSetCurrentGuess,
         maxGuesses: MAX_GUESSES,
         status,
+        reset,
       }}
     >
       {children}

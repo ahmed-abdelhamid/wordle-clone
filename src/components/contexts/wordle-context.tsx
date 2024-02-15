@@ -4,12 +4,13 @@ export type GameStatus = "won" | "lost" | "playing";
 
 interface IWordleContext {
   currentGuess: string;
-  setCurrentGuess: (value: string) => void;
   guesses: string[];
   targetWord: string;
-  addGuess: (guess: string) => void;
   maxGuesses: number;
   status: GameStatus;
+  setCurrentGuess: (value: string) => void;
+  addGuess: (guess: string) => void;
+  reset: () => void;
 }
 
 export const WordleContext = createContext<IWordleContext | undefined>(
