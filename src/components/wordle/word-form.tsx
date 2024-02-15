@@ -30,6 +30,7 @@ export const WordForm = () => {
         value={context?.currentGuess}
         disabled={context?.guesses.length === context?.maxGuesses}
         onChange={handleGuessChange}
+        className="text-center text-lg"
       />
     </form>
   );
