@@ -8,7 +8,10 @@ export const WordleStatusAlert = () => {
 
   if (context?.status === "won") {
     return (
-      <Alert className="border border-green-800 bg-green-800/20 text-green-800 text-center">
+      <Alert
+        data-testid="success"
+        className="border border-green-800 bg-green-800/20 text-green-800 text-center"
+      >
         <AlertDescription>
           <strong>Congarulations!</strong> Got it in{" "}
           <strong>{context.guesses.length}</strong>{" "}
@@ -20,7 +23,10 @@ export const WordleStatusAlert = () => {
 
   if (context?.status === "lost") {
     return (
-      <Alert className="border border-red-800 bg-red-800/20 text-red-800 text-center">
+      <Alert
+        data-testid="fail"
+        className="border border-red-800 bg-red-800/20 text-red-800 text-center"
+      >
         <AlertDescription>
           <strong>Sorry!</strong> The correct word was{" "}
           <strong>{context.targetWord}</strong>.
