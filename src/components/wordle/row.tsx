@@ -13,6 +13,7 @@ export const Row = ({ guess }: RowProps) => {
     <div className="flex space-x-4">
       {Array.from({ length: 5 }).map((_, i) => (
         <span
+          role="presentation"
           key={i}
           className={cn(
             "w-20 h-20 shrink-0 inline-flex items-center justify-center p-4 text-4xl text-white border-foreground/20 border-2 rounded-lg",
