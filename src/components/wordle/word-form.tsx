@@ -17,11 +17,16 @@ export const WordForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-2">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-2"
+      data-testid="guess-form"
+    >
       <Label htmlFor="word" className="text-center w-full block">
         Type your guess
       </Label>
       <Input
+        data-testid="guess-input"
         id="word"
         pattern="[A-Za-z]{5}"
         title="Your guess should be only letters and 5 letters long"
