@@ -10,10 +10,10 @@ export const Row = ({ guess }: RowProps) => {
   const lettersStatus = checkGuess(TARGET_WORD, guess);
 
   return (
-    <div className="flex space-x-4">
+    <div className="flex space-x-4" data-testid="row">
       {Array.from({ length: 5 }).map((_, i) => (
         <span
-          role="presentation"
+          data-testid="letter"
           key={i}
           className={cn(
             "w-20 h-20 shrink-0 inline-flex items-center justify-center p-4 text-4xl text-white border-foreground/20 border-2 rounded-lg",

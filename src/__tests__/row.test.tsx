@@ -54,7 +54,7 @@ describe("Row component", () => {
   it("renders correctly when no guess is provided", () => {
     render(<Row />);
     // Verify that the component renders without showing any letters
-    const boxes = screen.getAllByRole("presentation");
+    const boxes = screen.getAllByTestId("letter");
     expect(boxes.length).toBe(5);
     boxes.forEach((box) => {
       expect(box).toHaveTextContent("");
