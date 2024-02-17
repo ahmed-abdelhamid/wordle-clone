@@ -8,6 +8,7 @@ export const ResetButton = () => {
 
   return (
     <Button
+      data-testid="reset-button"
       size="lg"
       variant="secondary"
       className="w-full"
